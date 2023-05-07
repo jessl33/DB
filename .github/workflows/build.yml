@@ -53,19 +53,15 @@ jobs:
                     "fields": [
                       {
                         "type": "mrkdwn",
-                        "text": "*Name*: Tey Kee Yeow"
+                        "text": "*Name*: Jess Lee Shi Ying"
                       },
                       {
                         "type": "mrkdwn",
-                        "text": "*Email*: kee@u.nus.edu"
+                        "text": "*Email*: Leesyj98@gmail.com"
                       },
                       {
                         "type": "mrkdwn",
-                        "text": "*Matriculation*: A0112234Y"
-                      },
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Repository*:\n ${{ github.server_url }}/${{ github.repository }}"
+                        "text": "*Matriculation*: A0190083J"
                       }
                     ]
                   },
