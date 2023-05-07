@@ -43,8 +43,8 @@ jobs:
                     "type": "mrkdwn",
                     "text": "*DipSA 56 CI/CD Submission*"
                   }
-            },
-            {
+                },
+                {
                   "type": "section",
                   "fields": [
                     {
@@ -63,24 +63,26 @@ jobs:
                       "type": "mrkdwn",
                       "text": "*Matriculation:*\nA0190083J"
                     }
-                ]
-            },
-            {
-                "type": "actions",
-                "elements": [
-                  {
-                    "type": "button",
-                    "text": {
-                      "type": "plain_text",
-                      "emoji": true,
-                      "text": "GO"
-                    },
-                    "style": "primary",
-                    "value": "click_me_123"
-                  }
-              
+                  ]
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                        "type": "button",
+                        "text": {
+                          "type": "plain_text",
+                          "emoji": true,
+                          "text": "GO"
+                      },
+                      "style": "primary",
+                      "value": "click_me_123"
+                    }
+                  ]
+                }
               ]
             }
+             
         
 
                  
