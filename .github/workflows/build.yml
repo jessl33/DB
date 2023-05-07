@@ -78,6 +78,13 @@ jobs:
                     "style": "primary",
                     "value": "click_me_123"
                   }
+                {
+                    "type": "section",
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": "<https://db-production.up.railway.app/>"
+                    }
+                }
                 ]
               }
             ]
