@@ -1,0 +1,19 @@
+{
+  "name": "db-final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jessl33/DB.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jessl33/DB/issues"
+  },
+  "homepage": "https://github.com/jessl33/DB#readme"
+}
