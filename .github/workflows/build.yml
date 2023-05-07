@@ -33,65 +33,65 @@ jobs:
       - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
-        with:
+        with:  
           payload: |
-          
-            "blocks": [
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "*DipSA 56 CI/CD Submission*"
-                }
-              },
-              {
-                "type": "section",
-                "fields": [
+            {
+                "blocks": [
                   {
-                    "type": "mrkdwn",
-                    "text": "*Name:*\nJess Lee Shi Ying"
+                    "type": "header",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "GdipSA 56 CICD Submission"
+                    }
                   },
                   {
-                    "type": "mrkdwn",
-                    "text": "*Email:*\nLeesyj98@gmail.com"
+                    "type": "section",
+                    "fields": [
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Name*: Jess Lee Shi Ying"
+                      },
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Email*: Leesyj98@gmail.com"
+                      },
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Matriculation*: A0190083J"
+                      },
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Repository*:\n ${{ github.server_url }}/${{ github.repository }}"
+                      }
+                    ]
                   },
                   {
-                    "type": "mrkdwn",
-                    "text": "*Repository:*\nhttps://github.com/jessl33/DB.git"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Matriculation:*\nA0190083J"
-                  }
-                ]
-              },
-              {
-                "type": "actions",
-                "elements": [
-                  {
-                      "type": "button",
-                      "text": {
-                        "type": "plain_text",
-                        "emoji": true,
-                        "text": "GO"
-                    },
-                    "style": "primary",
-                    "value": "click_me_123"
-                  }
-                {
                     "type": "section",
                     "text": {
                       "type": "mrkdwn",
-                      "text": "<https://db-production.up.railway.app/>"
+                      "text": "${{ secrets.RAILWAY_URL }}"
+                    },
+                    "accessory": {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "Go",
+                        "emoji": true
+                      },
+                      "value": "click_me_123",
+                      "url": "${{ secrets.RAILWAY_URL }}",
+                      "action_id": "button-action"
                     }
-                }
+                  }          
                 ]
               }
-            ]
+      
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
           
 
           
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK 
+       
             
