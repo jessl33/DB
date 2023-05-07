@@ -34,11 +34,59 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with:
-          payload: |
+            payload:
             {
-              "text": "*Name*: Jess Lee Shi Ying\nMatriculation *Number*: A0190083J\n*Email*: Leesyj98@gmail.com\n*Repository*: https://github.com/${{ github.repository }} \n\n"
-            }
-      
-          env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK  
+              "blocks": [
+            {
+              "type": "section",
+              "text": {
+                "type": "mrkdwn",
+                "text": "You have a new request:\n*<fakeLink.toEmployeeProfile.com|Fred Enriquez - New device request>*"
+              }
+            },
+            {
+              "type": "section",
+              "fields": [
+                {
+                  "type": "mrkdwn",
+                  "text": "*Name:*\nJess Lee Shi Ying"
+                },
+                {
+                  "type": "mrkdwn",
+                  "text": "*Email:*\nLeesyj98@gmail.com"
+                },
+                {
+                  "type": "mrkdwn",
+                  "text": "*Repository:*\nhttps://github.com/jessl33/DB.git"
+              },
+              {
+                "type": "mrkdwn",
+                "text": "*Matriculation:*\nA0190083J"
+              }
+            ]
+          },
+          {
+            "type": "actions",
+            "elements": [
+              {
+                "type": "button",
+                "text": {
+                  "type": "plain_text",
+                  "emoji": true,
+                  "text": "GO"
+                },
+                "style": "primary",
+                "value": "click_me_123"
+              },
+              
+            ]
+          }
+        ]
+
+          }|        
+
+          
+            env:
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+            SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK 
+          
