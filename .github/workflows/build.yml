@@ -35,58 +35,58 @@ jobs:
         uses: slackapi/slack-github-action@v1.23.0
         with:
             payload: |
-            
-              "blocks": [
             {
-              "type": "section",
-              "text": {
-                "type": "mrkdwn",
-                "text": "*DipSA 56 CI/CD Submission*"
-              }
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*DipSA 56 CI/CD Submission*"
+                  }
             },
             {
-              "type": "section",
-              "fields": [
-                {
-                  "type": "mrkdwn",
-                  "text": "*Name:*\nJess Lee Shi Ying"
-                },
-                {
-                  "type": "mrkdwn",
-                  "text": "*Email:*\nLeesyj98@gmail.com"
-                },
-                {
-                  "type": "mrkdwn",
-                  "text": "*Repository:*\nhttps://github.com/jessl33/DB.git"
-              },
-              {
-                "type": "mrkdwn",
-                "text": "*Matriculation:*\nA0190083J"
-              }
-            ]
-          ,
-          {
-            "type": "actions",
-            "elements": [
-              {
-                "type": "button",
-                "text": {
-                  "type": "plain_text",
-                  "emoji": true,
-                  "text": "GO"
-                },
-                "style": "primary",
-                "value": "click_me_123"
-              },
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Name:*\nJess Lee Shi Ying"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Email:*\nLeesyj98@gmail.com"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Repository:*\nhttps://github.com/jessl33/DB.git"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Matriculation:*\nA0190083J"
+                    }
+                ]
+            },
+            {
+                "type": "actions",
+                "elements": [
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "emoji": true,
+                      "text": "GO"
+                    },
+                    "style": "primary",
+                    "value": "click_me_123"
+                  }
               
-            ]
-          }
+              ]
+            }
         
 
-          |        
+                 
 
           
-            env:
-            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-            SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK 
-          
+          env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK 
+        
