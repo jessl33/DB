@@ -3,33 +3,31 @@ name: Deploy to Railway
 on:
   push:
     branches:
-      - main
-      - 'release/v[0-9]+.[0-9]+'
+      - main 
+      - "^release/v[0-9]+.[0-9]+$"
 
 jobs:
   deploy:
     if: "!contains(github.event.head_commit.message, '#NORUN')"
     runs-on: ubuntu-latest
+    steps: 
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Use Node 16
-        uses: actions/setup-node@v1
+      - name: checkout
+        uses: actions/checkout@v3
         with:
-          node-version: 16.x
-
-      - name: Install packages
-        run: yarn install --frozen-lockfile
-
-      - name: Install Railway
-        run: npm i -g @railway/cli
+          fetch-depth: 0
+        
+      - name: setup noje.js env
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: Deploy
         run: railway up
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+
+            
 
       - name: Send custom JSON data to Slack workflow
         id: slack
@@ -50,15 +48,19 @@ jobs:
                     "fields": [
                       {
                         "type": "mrkdwn",
-                        "text": "*Name*: Jess Lee Shi Ying"
+                        "text": "*Name*: Jess"
                       },
                       {
                         "type": "mrkdwn",
-                        "text": "*Email*: Leesyj98@gmail.com"
+                        "text": "*Email*: e0325667@u.nus.edu"
                       },
                       {
                         "type": "mrkdwn",
                         "text": "*Matriculation*: A0190083J"
+                      },
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Repository*:\n ${{ github.server_url }}/${{ github.repository }}"
                       }
                     ]
                   },
@@ -80,14 +82,14 @@ jobs:
                       "action_id": "button-action"
                     }
                   }          
-              ]
-            }
+                ]
+              }
       
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
-          
+    
 
           
        
