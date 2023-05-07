@@ -36,7 +36,7 @@ jobs:
         with:
           payload: |
             {
-              "text": "GitHub Action build result: ${{ job.status }}\nName: Jess\nMatriculation Number: A0190083J\nEmail: Leesyj98@gmail.com\nRepository: https://github.com/${{ github.repository }} \n\n"
+              "text": "GitHub Action build result: ${{ job.status }}\nName: Jess Lee Shi Ying\nMatriculation Number: A0190083J\nEmail: Leesyj98@gmail.com\nRepository: https://github.com/${{ github.repository }} \n\n"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
