@@ -3,8 +3,8 @@ name: Deploy to Railway
 on:
   push:
     branches:
-      - release/v1
       - 'release/v[0-9]+.[0-9]+'
+
 jobs:
   deploy:
     if: "!contains(github.event.head_commit.message, '#NORUN')"
@@ -33,68 +33,11 @@ jobs:
       - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
-        with:  
+        with:
           payload: |
             {
-                "blocks": [
-                  {
-                    "type": "header",
-                    "text": {
-                      "type": "plain_text",
-                      "text": "GdipSA 56 CICD Submission"
-                    }
-                  },
-                  {
-                    "type": "section",
-                    "fields": [
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Name*: Jess Lee Shi Ying"
-                      },
-                      
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Repository*:\n ${{ github.server_url }}/${{ github.repository }}"
-                      },
-                      
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Email*: Leesyj98@gmail.com"
-                      },
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Matriculation*: A0190083J"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "section",
-                    "text": {
-                      "type": "mrkdwn",
-                      "text": "${{ secrets.RAILWAY_URL }}"
-                    },
-                    "accessory": {
-                      "type": "button",
-                      "text": {
-                        "type": "plain_text",
-                        "text": "Go",
-                        "emoji": true
-                      },
-                      "value": "click_me_123",
-                      "url": "${{ secrets.RAILWAY_URL }}",
-                      "action_id": "button-action"
-                    }
-                  }          
-                ]
+              "text": "Name: Jess Lee Shi Ying\nMatriculation Number: A0190083J\nEmail: Leesyj98@gmail.com\nRepository: https://github.com/${{ github.repository }} \n\n"
             }
-      
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-
-          
-
-          
-       
-            
-
