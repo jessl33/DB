@@ -48,19 +48,15 @@ jobs:
                     "fields": [
                       {
                         "type": "mrkdwn",
-                        "text": "*Name*: Jess"
+                        "text": "*Name*: Jess Lee Shi Ying"
                       },
                       {
                         "type": "mrkdwn",
-                        "text": "*Email*: e0325667@u.nus.edu"
+                        "text": "*Email*: Leesyj98@gmail.com"
                       },
                       {
                         "type": "mrkdwn",
                         "text": "*Matriculation*: A0190083J"
-                      },
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Repository*:\n ${{ github.server_url }}/${{ github.repository }}"
                       }
                     ]
                   },
@@ -82,14 +78,14 @@ jobs:
                       "action_id": "button-action"
                     }
                   }          
-                ]
-              }
+              ]
+            }
       
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-
-    
+      
+                     
 
           
        
