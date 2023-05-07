@@ -1,26 +1,24 @@
-name: Deployment project 
-on: 
+name: Deploy to Railway
+
+on:
   push:
-    branches: 
-      - main 
-      - "^release/v[0-9]+.[0-9]+$"
+    branches:
+      - main
+      - 'release/v[0-9]+.[0-9]+'
 
-jobs: 
-  dovbear: 
+jobs:
+  deploy:
+    if: "!contains(github.event.head_commit.message, '#NORUN')"
+    runs-on: ubuntu-latest
 
-    if: "!startsWith(github.event.head_commit.message, '#NORUN')"
-    runs-on: ubuntu-latest    
-    steps: 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: checkout
-        uses: actions/checkout@v3
+      - name: Use Node 16
+        uses: actions/setup-node@v1
         with:
-          fetch-depth: 0
-        
-      - name: setup node.js env
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
+          node-version: 16.x
 
       - name: Install packages
         run: yarn install --frozen-lockfile
@@ -32,9 +30,8 @@ jobs:
         run: railway up
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-          
 
-      - name: Display submission to Slack workflow
+      - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with:  
@@ -83,9 +80,15 @@ jobs:
                       "action_id": "button-action"
                     }
                   }          
-                ]
-              }
+              ]
+            }
       
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+          
+
+          
+       
+            
