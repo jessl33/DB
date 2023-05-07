@@ -6,7 +6,6 @@ on:
 
 jobs:
   deploy:
-    if: "!contains(github.event.head_commit.message, '#NORUN')"
     runs-on: ubuntu-latest
 
     steps:
@@ -35,7 +34,7 @@ jobs:
         with:
           payload: |
             {
-              "text": "GitHub Action build result: ${{ job.status }}\nName: Jess\nMatriculation Number: A0190083J\nEmail: Leesyj98@gmail.com\nRepository: https://github.com/${{ github.repository }} \n\n"
+              "text": "GitHub Action build result: ${{ job.status }}\nName: Jess\nMatriculation Number: A0190083j\nEmail: Leesyj98@gmail.com\nRepository: https://github.com/${{ github.repository }} \n\n"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
