@@ -34,14 +34,14 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with:
-            payload:
+            payload: |
             
               "blocks": [
             {
               "type": "section",
               "text": {
                 "type": "mrkdwn",
-                "text": "You have a new request:\n*<fakeLink.toEmployeeProfile.com|Fred Enriquez - New device request>*"
+                "text": "*DipSA 56 CI/CD Submission*"
               }
             },
             {
@@ -64,7 +64,7 @@ jobs:
                 "text": "*Matriculation:*\nA0190083J"
               }
             ]
-          },
+          ,
           {
             "type": "actions",
             "elements": [
@@ -81,7 +81,7 @@ jobs:
               
             ]
           }
-        ]
+        
 
           |        
 
