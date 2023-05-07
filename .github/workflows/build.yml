@@ -3,7 +3,7 @@ name: Deploy to Railway
 on:
   push:
     branches:
-      - main
+      - release/v1
       - 'release/v[0-9]+.[0-9]+'
 
 jobs:
