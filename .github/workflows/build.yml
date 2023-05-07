@@ -3,9 +3,8 @@ name: Deploy to Railway
 on:
   push:
     branches:
-      - release/v1  
+      - release/v1
       - 'release/v[0-9]+.[0-9]+'
-
 jobs:
   deploy:
     if: "!contains(github.event.head_commit.message, '#NORUN')"
@@ -26,16 +25,15 @@ jobs:
       - name: Install Railway
         run: npm i -g @railway/cli
 
-      - name: Deploy to Railway
-        uses: bervProject/railway-deploy@main
-        with:
-          railway_token: ${{ secrets.RAILWAY_TOKEN }}
-          service: "CICD" 
+      - name: Deploy
+        run: railway up
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
       - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
-        with:
+        with:  
           payload: |
             {
                 "blocks": [
@@ -53,17 +51,19 @@ jobs:
                         "type": "mrkdwn",
                         "text": "*Name*: Jess Lee Shi Ying"
                       },
+                      
                       {
                         "type": "mrkdwn",
-                        "text": "*Email*: e0325667@u.nus.edu"
+                        "text": "*Repository*:\n ${{ github.server_url }}/${{ github.repository }}"
+                      },
+                      
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Email*: Leesyj98@gmail.com"
                       },
                       {
                         "type": "mrkdwn",
                         "text": "*Matriculation*: A0190083J"
-                      },
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Repository*:\n ${{ github.server_url }}/${{ github.repository }}"
                       }
                     ]
                   },
@@ -86,7 +86,15 @@ jobs:
                     }
                   }          
                 ]
-              }
+            }
+      
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+          
+
+          
+       
+            
+
