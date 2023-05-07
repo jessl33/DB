@@ -79,7 +79,7 @@ jobs:
                       "action_id": "button-action"
                     }
                   }          
-              ]
+                ]
             }
       
         env:
