@@ -59,10 +59,6 @@ jobs:
                       {
                         "type": "mrkdwn",
                         "text": "*Matriculation*: A0190083J"
-                      },
-                      {
-                        "type": "mrkdwn",
-                        "text": "*Repository*:\n https://github.com/${{ github.repository }}"
                       }
                     ]
                   },
